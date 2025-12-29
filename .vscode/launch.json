@@ -57,6 +57,19 @@
             "environment": [],
             "console": "integratedTerminal",  // или "externalTerminal"
             "preLaunchTask": "build (msvc)"
+        },
+
+        {
+            "name": "[Custom] Debug imgui app",
+            "type": "cppvsdbg",               // встроенный движок VS Code для MSVC
+            "request": "launch",
+            "program": "${workspaceFolder}/build/cmake_ms_debug/Debug/start_imgui.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal",  // или "externalTerminal"
+            // "preLaunchTask": "build (msvc)"
         }
     ]
 }
