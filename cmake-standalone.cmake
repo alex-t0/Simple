@@ -1,0 +1,14 @@
+# clang-standalone.cmake
+set(CMAKE_SYSTEM_NAME Windows)
+
+# Пути к компиляторам
+set(CMAKE_C_COMPILER "C:/SOFT/LLVM/bin/clang.exe")
+set(CMAKE_CXX_COMPILER "C:/SOFT/LLVM/bin/clang++.exe")
+
+# Если хочешь Ninja
+# set(CMAKE_MAKE_PROGRAM "ninja.exe")
+
+# Флаги Debug/Release
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Osize -flto")
+

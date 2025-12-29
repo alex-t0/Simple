@@ -1,0 +1,62 @@
+// .vscode/launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        /* ---------- GCC / G++ + GDB ---------- */
+        {
+            "name": "[Custom] Debug (gcc/g++ + gdb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/gcc/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,          // true – если нужен отдельный терминал
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build (gcc/g++)", // задача из tasks.json
+            // "miDebuggerPath": "gdb",   // Linux/macOS
+            // "miDebuggerPath": "/usr/bin/gdb",   // Linux/macOS
+            // "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe", // MinGW
+            "logging": { "engineLogging": false }
+        },
+
+        /* ---------- Clang / Clang++ + LLDB ---------- */
+        {
+            "name": "[Custom] Debug (clang/clang++ + lldb)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/clang/${fileBasenameNoExtension}",
+            "args": [],
+            // "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            // "environment": [],
+            // "externalConsole": false,
+            // "MIMode": "lldb",
+            // "miDebuggerPath": "C:\\SOFT\\LLVM\\bin\\lldb.exe",
+            "preLaunchTask": "build (clang/clang++)"
+        },
+
+        /* ---------- Visual C++ (MSVC) ---------- */
+        {
+            "name": "[Custom] Debug (Visual C++ / cl.exe)",
+            "type": "cppvsdbg",               // встроенный движок VS Code для MSVC
+            "request": "launch",
+            "program": "${workspaceFolder}/build/ms/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal",  // или "externalTerminal"
+            "preLaunchTask": "build (msvc)"
+        }
+    ]
+}
