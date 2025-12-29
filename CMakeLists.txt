@@ -12,6 +12,10 @@ target_sources(start
     start.cpp
 )
 
+add_subdirectory(lib/catch2)
+add_executable(tests test.cpp)
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+
 if (MSVC)
     target_compile_options(start PRIVATE
         $<$<CONFIG:Debug>:/Zi /Od /RTC1>
